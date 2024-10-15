@@ -49,3 +49,9 @@ Containerization: The app is packed into a Docker container, making it easy to r
  
 Deployment: The Docker image can be pulled from Docker Hub and run with just a few commands, enabling quick deployment.  
 
+### Technologies Used  
+HTML5: For structuring the web page.  
+CSS3: For styling the application.  
+JavaScript: For generating random quotes.  
+Docker: To containerize the application and make it platform-independent.
+
