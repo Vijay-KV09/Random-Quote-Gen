@@ -37,3 +37,11 @@ To run the container in detached mode and map port 8080 on your local machine to
 ```bash
 docker run -d -p 8080:80 vijaydocker404/random-quote-app
 ```
+Now, open your browser and go to http://localhost:8080 to view the app.
+
+### Workflow of the Application
+User Interaction: When the user opens the application in their browser, they see a button to generate a random quote.  
+Generating Quotes: Each time the button is clicked, a new quote is displayed from a predefined list of quotes.  
+Containerization: The app is packed into a Docker container, making it easy to run the app in any environment without worrying about dependencies.  
+Deployment: The Docker image can be pulled from Docker Hub and run with just a few commands, enabling quick deployment.  
+
