@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Quote App</title>
+    <script>
+        const api_endpoint = "https://api.api-ninjas.com/v1/quotes?category=happiness";
+        const api_key = "fzz6ZYXbOlVEgLTEKZpRNSwoKduf10fzxhCKZZkX";
+
+        const getQuote = async () =>{
+            try{
+                const response = await fetch(api_endpoint,{
+                    method: "GET",
+                    headers:{
+                        "X-Api-Key": api_key,
+                    }
+                })
+
+                if(!response.ok){
+                    alert("Error");
+                }
+
+                const data = await response.json();
+                console.log(data);
+
+                document.getElementById("block").innerText = data[0].quote;
+                document.getElementById("author").innerText = data[0].author;
+            }catch(error){
+                console.log("error");
+            }
+        };
+
+        const playsound = () => {
+            const sound = document.getElementById("clicksound");
+            sound.currentTime = 0;
+            sound.play();
+        }
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            const button = document.getElementById("button");
+            button.addEventListener("click",()=>{
+                playsound();
+                getQuote();
+            })
+        })
+
+        function tweet(){
+            playsound();
+            window.open("https://twitter.com/intent/tweet?text=" + document.getElementById("block").innerHTML,
+            "Tweet Window","width=600, height=300");
+        }
+
+        function source(id){
+            playsound();
+            setTimeout(() => {
+                if(id === 1)
+                {
+                    window.open("https://github.com/Vijay-KV09/Random-Quote-Gen","_blank")
+                }
+                else{
+                    window.open("https://github.com/Vijay-KV09/Random-Quote-Gen/blob/main/README.md","_blank");
+                }
+            },500)
+        }
+    </script>
+</head>
+<body>
+
+    <div class="quote-box">
+        <h2>Quote of the day</h2>
+        <blockquote id="block">Loading...</blockquote>
+        <span id="author">Loading...</span>
+        <div>
+            <button onclick="getQuote()" id="button">New Quote</button>
+            <button onclick="tweet()"><i class="fa fa-twitter" style="font-size:24px;padding-right:5px;color:rgb(29, 161, 242)"></i><strong>Tweet</strong></button>
+            <audio id="clicksound" src="click.wav"></audio>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button onclick="source(1)">Source Code</button>
+        <span style="color:white;margin-top:10px">
+            .....................
+        </span>
+        <button onclick="source(2)">Reference</button>
+    </div>
+</body>
+</html>
