@@ -1,4 +1,3 @@
-# Random-Quote-Gen
 # Random Quote Generator
 
 This project is a simple web application that generates random quotes built using **HTML**, **CSS**, and **JavaScript**. The application is containerized using **Docker** to ensure easy deployment and portability.
@@ -26,4 +25,15 @@ If you want to build the Docker image locally instead of pulling it from Docker 
 
 ```bash
 docker build -t yourusername/random-quote-app .
+```
+### Step 3: Pull the Docker Image  
+You can also pull the pre-built image from Docker Hub:  
+
+```bash
+docker pull vijaydocker404/random-quote-app:latest
+```
+### Step 4: Run the Docker Container
+To run the container in detached mode and map port 8080 on your local machine to port 80 inside the container:
+```bash
+docker run -d -p 8080:80 vijaydocker404/random-quote-app
 ```
