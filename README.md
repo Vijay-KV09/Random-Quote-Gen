@@ -20,5 +20,10 @@ First, clone the repository to your local machine:
 ```bash
 git clone https://github.com/yourusername/random-quote-app.git
 cd random-quote-app
-
+```
 ### Step 2: Build the Docker Image
+If you want to build the Docker image locally instead of pulling it from Docker Hub, use the following command:
+
+```bash
+docker build -t yourusername/random-quote-app .
+```
