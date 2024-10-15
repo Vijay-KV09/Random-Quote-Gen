@@ -55,3 +55,6 @@ CSS3: For styling the application.
 JavaScript: For generating random quotes.  
 Docker: To containerize the application and make it platform-independent.
 
+### Contributing  
+*Feel free to submit pull requests or raise issues if you have suggestions for improvements or encounter any problems!*
+
